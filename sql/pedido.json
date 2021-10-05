@@ -1,0 +1,39 @@
+{
+  "cliente": {
+    "nombre": "Peter",
+    "apellidos": "Baelish",
+    "dni": "12345678X",
+    "telefono": 654987321,
+    "email": "peter@peter.com"
+  },
+  "direccion": {
+    "tipoVia": "calle",
+    "calle": "Tramuntana",
+    "numero": 12,
+    "ciudad": "Valencia",
+    "provincia": "Valencia",
+    "cp": 46528,
+    "pais": "España"
+  },
+  "pedido": {
+    "precioTotal": 254.35,
+  },
+  "platoPedidos": [
+    {
+      "platoId": 3,
+      "cantidad": 2,
+      "extras": {
+        "nombre": "pepinillo",
+        "coste": 0.5
+      }
+    },
+    {
+      "platoId": 6,
+      "cantidad": 1,
+      "extras": {
+        "nombre": "bacon",
+        "coste": 0.5
+      }
+    }
+  ]
+}
