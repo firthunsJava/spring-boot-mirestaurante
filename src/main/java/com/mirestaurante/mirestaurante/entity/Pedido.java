@@ -1,14 +1,12 @@
 package com.mirestaurante.mirestaurante.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.HashSet;
+import java.sql.Date;
 import java.util.Set;
 
 @Entity
@@ -45,7 +43,7 @@ public class Pedido {
     private Restaurante restaurante;
 
     @ManyToOne
-    @JoinColumn(name = "cliente_id")
+    @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido")
@@ -56,20 +54,4 @@ public class Pedido {
     @JoinColumn(name = "direccion_id", referencedColumnName = "id")
     @JsonManagedReference
     private Direccion direccion;
-
-
-    public void add(PlatoPedido platoPedido) {
-
-        if (platoPedido != null) {
-            if (platosPedido == null) {
-                platosPedido = new HashSet<>();
-            }
-
-            platosPedido.add(platoPedido);
-            platoPedido.setPedido(this);
-
-        }
-
-    }
-
 }

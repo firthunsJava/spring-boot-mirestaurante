@@ -1,11 +1,12 @@
 package com.mirestaurante.mirestaurante.entity;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+
 
 @Entity
 @Table(name = "extra_pedido")
@@ -26,6 +27,6 @@ public class ExtraPedido {
 
     @ManyToOne
     @JoinColumn(name = "plato_pedido_id", nullable = false)
+    @JsonBackReference
     private PlatoPedido platoPedido;
-
 }

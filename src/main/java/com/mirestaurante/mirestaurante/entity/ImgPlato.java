@@ -1,6 +1,7 @@
 package com.mirestaurante.mirestaurante.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,6 @@ public class ImgPlato {
 
     @ManyToOne
     @JoinColumn(name = "plato_id", nullable = false)
+    @JsonBackReference
     private PlatoRestaurante platoRestaurante;
-
 }

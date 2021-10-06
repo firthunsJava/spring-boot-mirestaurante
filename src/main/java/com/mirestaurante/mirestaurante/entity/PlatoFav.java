@@ -1,6 +1,7 @@
 package com.mirestaurante.mirestaurante.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class PlatoFav {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -19,10 +19,10 @@ public class PlatoFav {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
+    @JsonBackReference
     private Cliente cliente;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "plato_id", referencedColumnName = "id")
     private PlatoRestaurante platoRestaurante;
 }
-

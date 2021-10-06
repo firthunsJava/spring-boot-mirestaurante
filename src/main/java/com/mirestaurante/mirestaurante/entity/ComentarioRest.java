@@ -3,6 +3,11 @@ package com.mirestaurante.mirestaurante.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
@@ -27,7 +32,6 @@ public class ComentarioRest {
 
     @ManyToOne
     @JoinColumn(name = "restaurante_id", nullable = false)
-    private Restaurante restaurante;
-
-}
+    @JsonBackReference
+    private Restaurante restaurante;}
 

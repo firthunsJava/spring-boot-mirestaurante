@@ -1,11 +1,11 @@
 package com.mirestaurante.mirestaurante.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -35,12 +35,15 @@ public class Cliente {
     private String email;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    @JsonManagedReference
     private Set<Pedido> pedidos;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    @JsonManagedReference
     private Set<PlatoFav> platosFav;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    @JsonManagedReference
     private Set<RestauranteFav> restaurantesFav;
 
     @OneToOne
@@ -48,27 +51,6 @@ public class Cliente {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
-    private Set<Direccion> direccion;
-
-    public void add(Pedido pedido) {
-        if (pedido != null) {
-            if (pedidos == null) {
-                pedidos = new HashSet<>();
-            }
-
-            pedidos.add(pedido);
-            pedido.setCliente(this);
-        }
-    }
-
-    public void addDireccion(Direccion direccionEnvio) {
-        if (direccionEnvio != null ) {
-            if (direccion == null) {
-                direccion = new HashSet<>();
-            }
-            direccion.add(direccionEnvio);
-            direccionEnvio.setCliente(this);
-        }
-
-    }
+    @JsonManagedReference
+    private Set<Direccion> direcciones;
 }

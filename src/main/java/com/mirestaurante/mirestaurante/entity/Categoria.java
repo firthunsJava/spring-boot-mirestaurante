@@ -1,5 +1,6 @@
 package com.mirestaurante.mirestaurante.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ import java.util.Set;
 @Setter
 public class Categoria {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -21,6 +23,7 @@ public class Categoria {
     private String categoria;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoria")
+    @JsonManagedReference
     private Set<Restaurante> restaurantes;
 
 }

@@ -6,12 +6,15 @@ import lombok.Setter;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "comentario_plato")
 @Getter
-@Setter
 public class ComentarioPlato {
 
     @Id
@@ -30,7 +33,7 @@ public class ComentarioPlato {
 
     @ManyToOne
     @JoinColumn(name = "plato_id", nullable = false)
+    @JsonBackReference
     private PlatoRestaurante platoRestaurante;
-
 }
 

@@ -32,14 +32,15 @@ public class Direccion {
     @Column(name = "provincia")
     private String provincia;
 
-    @Column(name = "cp")
-    private int CP;
-
     @Column(name = "pais")
     private String pais;
 
+    @Column(name = "cp")
+    private int cp;
+
     @ManyToOne
     @JoinColumn(name = "cliente_id")
+    @JsonBackReference
     private Cliente cliente;
 
     @OneToOne
