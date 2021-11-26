@@ -18,6 +18,8 @@ public interface RestauranteRepository extends JpaRepository<Restaurante, Long> 
     
     Page<Restaurante> findByCategoriaId(@RequestParam("id") Long id, Pageable pageable);
 
+     // SELECT * FROM Restaurante r WHERE r.nombre LIKE CONCAT('%', :name, '%' )
+     Page<Restaurante> findByNombreContaining(@RequestParam("nombre") String nombre, Pageable pageable);
 
-
+     // ponemos en la url ejemplo busqueda:   http://localhost:8080/api/restaurantes/search/findByNombreContaining?nombre=King
 }
