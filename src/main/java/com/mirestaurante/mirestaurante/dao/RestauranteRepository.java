@@ -22,4 +22,7 @@ public interface RestauranteRepository extends JpaRepository<Restaurante, Long> 
      Page<Restaurante> findByNombreContaining(@RequestParam("nombre") String nombre, Pageable pageable);
 
      // ponemos en la url ejemplo busqueda:   http://localhost:8080/api/restaurantes/search/findByNombreContaining?nombre=King
+
+
+    Restaurante findRestauranteById(Long id);
 }

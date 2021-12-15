@@ -1,6 +1,7 @@
 package com.mirestaurante.mirestaurante.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Table(name="restaurante")
 @Getter
 @Setter
+
 public class Restaurante {
 
     @Id

@@ -1,7 +1,6 @@
 package com.mirestaurante.mirestaurante.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -14,6 +13,7 @@ import javax.persistence.*;
 @Table(name = "comentario_rest")
 @Getter
 @Setter
+
 public class ComentarioRest {
 
     @Id
@@ -33,5 +33,9 @@ public class ComentarioRest {
     @ManyToOne
     @JoinColumn(name = "restaurante_id", nullable = false)
     @JsonBackReference
-    private Restaurante restaurante;}
+    private Restaurante restaurante;
+
+
+}
+
 
