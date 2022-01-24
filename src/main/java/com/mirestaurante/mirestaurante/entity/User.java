@@ -1,6 +1,5 @@
 package com.mirestaurante.mirestaurante.entity;
 
-
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;

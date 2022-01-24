@@ -27,6 +27,6 @@ public class ExtraPedido {
 
     @ManyToOne
     @JoinColumn(name = "plato_pedido_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference(value="extrasPedido")
     private PlatoPedido platoPedido;
 }

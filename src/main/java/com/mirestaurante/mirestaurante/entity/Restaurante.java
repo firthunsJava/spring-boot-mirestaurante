@@ -1,7 +1,7 @@
 package com.mirestaurante.mirestaurante.entity;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,7 +15,6 @@ import java.util.Set;
 @Table(name="restaurante")
 @Getter
 @Setter
-
 public class Restaurante {
 
     @Id
@@ -24,23 +23,23 @@ public class Restaurante {
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "restaurante")
-    @JsonManagedReference
+    @JsonManagedReference(value="imgsRestaurante")
     private Set<ImgRestaurante> imgsRestaurante;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "restaurante")
-    @JsonManagedReference
+    @JsonManagedReference(value="horarios")
     private Set<Horario> horarios;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "restaurante")
-    @JsonManagedReference
+    @JsonManagedReference(value="comentariosRest")
     private Set<ComentarioRest> comentariosRest;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "restaurante")
-    @JsonManagedReference
+    @JsonManagedReference(value="pedidosRestaurante")
     private Set<Pedido> pedidos;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "restaurante")
-    @JsonManagedReference
+    @JsonManagedReference(value="platosRestaurante")
     private Set<PlatoRestaurante> platosRestaurante;
 
     @OneToOne
@@ -80,7 +79,7 @@ public class Restaurante {
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
-    @JsonBackReference
+    @JsonBackReference(value="restaurantes")
     private Categoria categoria;
 
 

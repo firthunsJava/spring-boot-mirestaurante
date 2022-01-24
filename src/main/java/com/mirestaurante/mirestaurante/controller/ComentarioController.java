@@ -7,16 +7,18 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("http://localhost:4200")
 @RestController
-@RequestMapping("/api/comentariosRest")
+@RequestMapping(path="/api/comentariosRest",consumes = "Application/json")
 public class ComentarioController {
     private ComentarioService comentarioService;
 
-    public ComentarioController(ComentarioService comentarioService){
+    public ComentarioController(ComentarioService comentarioService) {
         this.comentarioService = comentarioService;
-         }
-    @PostMapping("/add")
-    public ComentarioResponse addComentario(  @RequestBody ComentarioDTO comentarioDTO ){
-        return comentarioService.addComentario( comentarioDTO);
     }
 
+    @PostMapping("/add")
+    public ComentarioResponse addComentario(
+            @RequestBody
+                    ComentarioDTO comentarioDTO) {
+        return comentarioService.addComentario(comentarioDTO);
+    }
 }

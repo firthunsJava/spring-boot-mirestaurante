@@ -40,11 +40,14 @@ public class Direccion {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-    @JsonBackReference
+    @JsonBackReference(value="direccionesCliente")
     private Cliente cliente;
 
     @OneToOne
     @PrimaryKeyJoinColumn
-    @JsonBackReference
+    @JsonBackReference(value="direccionesPedido")
     private Pedido pedido;
+
+
+
 }

@@ -1,5 +1,6 @@
 package com.mirestaurante.mirestaurante.entity;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
@@ -19,7 +20,7 @@ public class RestauranteFav {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-    @JsonBackReference
+    @JsonBackReference(value="restaurantesFav")
     private Cliente cliente;
 
     @OneToOne

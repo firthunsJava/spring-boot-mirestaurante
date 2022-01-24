@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "alergeno")
+@Table(name ="alergeno")
 @Getter
 @Setter
 public class Alergeno {
@@ -23,8 +23,7 @@ public class Alergeno {
 
     @ManyToOne
     @JoinColumn(name = "plato_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference(value="alergenos")
     private PlatoRestaurante platoRestaurante;
 
 }
-

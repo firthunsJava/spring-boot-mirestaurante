@@ -1,7 +1,7 @@
 package com.mirestaurante.mirestaurante.entity;
 
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,7 +21,7 @@ public class PlatoPedido {
 
     @ManyToOne
     @JoinColumn(name = "pedido_id")
-    @JsonBackReference
+    @JsonBackReference(value="platosPedido")
     private Pedido pedido;
 
     @OneToOne
@@ -32,6 +32,7 @@ public class PlatoPedido {
     private int cantidad;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "platoPedido")
+    @JsonManagedReference(value="extrasPedido")
     private Set<ExtraPedido> extrasPedido;
 
 

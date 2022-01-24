@@ -1,11 +1,8 @@
 package com.mirestaurante.mirestaurante.entity;
 
-
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -29,6 +26,6 @@ public class Extra {
 
     @ManyToOne
     @JoinColumn(name = "plato_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference(value="extras")
     private PlatoRestaurante platoRestaurante;
 }

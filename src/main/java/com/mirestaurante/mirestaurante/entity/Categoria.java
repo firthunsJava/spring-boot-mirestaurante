@@ -13,7 +13,6 @@ import java.util.Set;
 @Setter
 public class Categoria {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -23,8 +22,6 @@ public class Categoria {
     private String categoria;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoria")
-    @JsonManagedReference
+    @JsonManagedReference(value="restaurantes")
     private Set<Restaurante> restaurantes;
-
 }
-

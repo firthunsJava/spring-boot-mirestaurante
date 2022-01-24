@@ -1,6 +1,5 @@
 package com.mirestaurante.mirestaurante.dao;
 
-
 import com.mirestaurante.mirestaurante.entity.Restaurante;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,16 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @CrossOrigin("http://localhost:4200")
 @RepositoryRestResource
 public interface RestauranteRepository extends JpaRepository<Restaurante, Long> {
+    // SELECT * FROM restaurante where categoria_id = ?
+    Page<Restaurante> findByCategoriaId(
+            @RequestParam("id") Long id, Pageable pageable);
 
-    // select * from restaurante where categoria_id  = ?
-//    http://localhost:8080/api/restaurantes/search/findByCategoriaId?id=1
-    
-    Page<Restaurante> findByCategoriaId(@RequestParam("id") Long id, Pageable pageable);
-
-     // SELECT * FROM Restaurante r WHERE r.nombre LIKE CONCAT('%', :name, '%' )
-     Page<Restaurante> findByNombreContaining(@RequestParam("nombre") String nombre, Pageable pageable);
-
-     // ponemos en la url ejemplo busqueda:   http://localhost:8080/api/restaurantes/search/findByNombreContaining?nombre=King
+    // SELECT * FROM Restaurante r WHERE r.nombre LIKE CONCAT('%', :name, '%')
+    Page<Restaurante> findByNombreContaining(
+            @RequestParam("nombre") String nombre, Pageable pageable);
 
 
     Restaurante findRestauranteById(Long id);

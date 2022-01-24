@@ -1,5 +1,6 @@
 package com.mirestaurante.mirestaurante.entity;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
@@ -30,19 +31,19 @@ public class PlatoRestaurante {
     private BigDecimal precioBase;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "platoRestaurante")
-    @JsonManagedReference
+    @JsonManagedReference(value="alergenos")
     private Set<Alergeno> alergenos;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "platoRestaurante")
-    @JsonManagedReference
+    @JsonManagedReference(value="imgsPlato")
     private Set<ImgPlato> imgsPlato;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "platoRestaurante")
-    @JsonManagedReference
+    @JsonManagedReference(value="extras")
     private Set<Extra> extras;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "platoRestaurante")
-    @JsonManagedReference
+    @JsonManagedReference(value="comentariosPlato")
     private Set<ComentarioPlato> comentariosPlato;
 
     @OneToOne
@@ -55,7 +56,7 @@ public class PlatoRestaurante {
 
     @ManyToOne
     @JoinColumn(name = "restaurante_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference(value="platosRestaurante")
     private Restaurante restaurante;
 
 }

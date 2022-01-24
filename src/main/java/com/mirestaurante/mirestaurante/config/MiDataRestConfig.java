@@ -19,10 +19,11 @@ import java.util.Set;
 @Configuration
 public class MiDataRestConfig implements RepositoryRestConfigurer {
 
-    @Value("${allowed.origins}")
-    private String[] allowed;
+//    @Value("${allowed.origins}")
+//    private String[] allowed;
 
     private EntityManager entityManager;
+
     @Autowired // servidor por defecto
     public MiDataRestConfig(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -36,8 +37,8 @@ public class MiDataRestConfig implements RepositoryRestConfigurer {
         disableHttpMethods(Restaurante.class, config,theUnsupportedActions );
         disableHttpMethods(Categoria.class, config,theUnsupportedActions );
 
-
-        cors.addMapping("/api/**").allowedOrigins(allowed);
+        cors.addMapping("/api/**").allowedOrigins("http://localhost:4200");
+//        cors.addMapping("/api/**").allowedOrigins(allowed);
 
         // llamamos a la función donde expondremos las ids
         exposeIds(config);

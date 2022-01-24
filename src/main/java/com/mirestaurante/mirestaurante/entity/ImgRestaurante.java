@@ -23,6 +23,6 @@ public class ImgRestaurante {
 
     @ManyToOne
     @JoinColumn(name = "restaurante_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference(value="imgsRestaurante")
     private Restaurante restaurante;
 }
