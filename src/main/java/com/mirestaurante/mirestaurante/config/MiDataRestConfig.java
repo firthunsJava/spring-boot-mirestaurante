@@ -1,6 +1,8 @@
 package com.mirestaurante.mirestaurante.config;
 
 import com.mirestaurante.mirestaurante.entity.Categoria;
+import com.mirestaurante.mirestaurante.entity.Pais;
+import com.mirestaurante.mirestaurante.entity.Provincia;
 import com.mirestaurante.mirestaurante.entity.Restaurante;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,6 +38,8 @@ public class MiDataRestConfig implements RepositoryRestConfigurer {
 
         disableHttpMethods(Restaurante.class, config,theUnsupportedActions );
         disableHttpMethods(Categoria.class, config,theUnsupportedActions );
+        disableHttpMethods(Provincia.class, config, theUnsupportedActions);
+        disableHttpMethods(Pais.class, config, theUnsupportedActions);
 
         cors.addMapping("/api/**").allowedOrigins("http://localhost:4200");
 //        cors.addMapping("/api/**").allowedOrigins(allowed);
